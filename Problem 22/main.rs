@@ -4,7 +4,7 @@ use std::io::prelude::*;
 use std::path::Path;
 
 fn main() {
-	// Create a path to the desired file
+    // Create a path to the desired file
     let path = Path::new("names.txt");
     let display = path.display();
 
@@ -26,31 +26,31 @@ fn main() {
     }
 
 
-   	let cleaned = s.replace("\"", "");
+    let cleaned = s.replace("\"", "");
 
-   	let mut names: Vec<&str> = cleaned.split(",").collect();
+    let mut names: Vec<&str> = cleaned.split(",").collect();
 
-   	names.sort();
+    names.sort();
 
-   	let mut totscore = 0;
+    let mut totscore = 0;
 
-   	let nameslen = names.len();
+    let nameslen = names.len();
 
-   	for i in 0..nameslen {
-   		println!("{:?}", names[i]);
-   		totscore += namescore(names[i]) * (i as u32 + 1);
-   	}
+    for i in 0..nameslen {
+        println!("{:?}", names[i]);
+        totscore += namescore(names[i]) * (i as u32 + 1);
+    }
 
-   	println!("{:?}", totscore);
+    println!("{:?}", totscore);
 
-   	//println!("{:?}", names[984]);
+    //println!("{:?}", names[984]);
 
-   	fn namescore(name: &str) -> u32 {
-   		let mut score = 0;
-   		for c in name.chars() {
-   			score += c as u32 - 64
-   		}
-   		score
-   	}
+    fn namescore(name: &str) -> u32 {
+        let mut score = 0;
+        for c in name.chars() {
+            score += c as u32 - 64
+        }
+        score
+    }
 
 }
